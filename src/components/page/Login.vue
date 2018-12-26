@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="ms-title-r">
-                        <span> 已有账号 </span> <a href="#"> 立即登录</a>
+                        <span> 已有账号 </span> <span class="cuur" @click="currentLogin()"> 立即登录</span>
                     </div>
                 </div>
                 <el-form :model="ruleForm" label-width="0px" class="ms-content">
@@ -217,6 +217,33 @@
 
         },
         methods: {
+            currentLogin(){ // 立即登录
+                let that = this;
+                let redirecturls = this.GetRequest();
+                let ssoUrl = host.SSOWebUrl.zh+"?redirecturl=" +redirecturls;
+
+                window.localStorage.setItem("name",that.ruleForm.username);
+                console.log(ssoUrl);
+               window.location.href = ssoUrl ;
+            },
+            blankLoginIn() {
+                let redirecturls = this.GetRequest();
+                console.log(redirecturls)
+               window.location.href = redirecturls ;
+
+            },
+            GetRequest() {
+                let strr = "";
+                let url = location.search; //获取url中"?"符后的字串
+                let theRequest = new Object();
+                if (url.indexOf("?") != -1) {
+                  let  str = url.substr(1);
+                    strr = str.substring(12);
+                    return strr;
+                }
+
+            },
+
             open(v) {
                 // const href = window.location.host + '#';
                 //
@@ -267,12 +294,12 @@
                     return false;
                 }
 
-                const FullName = that.ruleForm.username + "@" + that.ruleForm.domain + ".hightalk.online";
+                const Account = that.ruleForm.username + "@" + that.ruleForm.domain + ".hightalk.online";
                 let data = {
                     "TenantInfo": {
-                        "ID": "de639518-b8ca-49e5-b5f7-98c729f8e376",
-                        "TenantName": that.ruleForm.username, // 用户名
-                        "Email": "1062922605@qq.com",
+                        "ID": "",
+                        "TenantName": that.ruleForm.companyName, // 租户名
+                        "Email": "",
                         "Tel": "",
                         "TenantSite": "",
                         "Trade": "",
@@ -283,11 +310,11 @@
                         "Status": 1
                     },
                     "TenantUserProfiles": {
-                        "ID": "cbcf0f1f-dbeb-4a1d-9fc4-c4239d9a6ae1",
-                        "FullName": FullName,
+                        "ID": "",
+                        "FullName": that.ruleForm.username, // 用户名
                         "Photo": "",
                         "TenantDomainName": that.ruleForm.domain, // 租户域名
-                        "Account": "10k@sun.hightalk.ai",
+                        "Account":Account , // 账号
                         "Password": that.ruleForm.password, // 密码
                         "Tel": "",
                         "AllowLogin": 1,
@@ -302,17 +329,23 @@
                     headers: {
                         "Content-Type": "application/json;charset=utf-8",
                     },
-                    url: host + "/api/Tenant/Register?v=" + new Date(),
+                    url: host.registerUrl + "/api/Tenant/Register?v=" + new Date(),
                     data: JSON.stringify(data),
                     dataType: "json",
                     async: true,
                     success: function (msg) {
                         console.log("msg", msg);
                         if (msg.Status == 1) {
+
+
                             that.$message({
-                                message: msg,
+                                message: "注册成功，将返回登录页面",
                                 type: 'success'
                             });
+
+                            window.localStorage.setItem("name",that.ruleForm.username);
+                            that.blankLoginIn();
+
                         }
                         if (msg.Status == 0) {
                             that.$message({
@@ -579,6 +612,9 @@
         padding: 0 !important;
         font-size: 16px !important;
     }
+    .login  .el-form-item {
+        margin-bottom: 0 !important;
+    }
 </style>
 <style scoped lang="scss">
     body {
@@ -601,18 +637,16 @@
     }
 
     .AllenLogo {
-        height: 60px;
         position: absolute;
         left: 60px;
         top: 30px;
-        z-index: 9;
-        height: 60px;
-        /* z-index: 1; */
+        height: 30px;
         background-image: url(../../../static/img/Hightalk-Logo_36090@2x2.png);
-        background-size: 180px 45px;
+        background-size: contain;
         /* background-position: -125px -35px; */
         background-repeat: no-repeat;
-        width: 100%;
+        width:1000px;
+        z-index: 9;
     }
 
     .Allen-tip {
@@ -639,9 +673,10 @@
         color: #555;
     }
 
-    .ms-title-r a {
+    .ms-title-r .cuur{
         color: #2a8ce7;
         text-decoration: none;
+        cursor: pointer;
     }
 
     .userName {
