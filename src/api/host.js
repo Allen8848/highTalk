@@ -1,7 +1,7 @@
 
 
 const TEST_URL = {
-    registerUrl:"https://hightalkssoapi-test.azurewebsites.net", // 注册页面
+    registerHost:"https://hightalkssoapi-test.azurewebsites.net", // 注册页面 服务器资源地址
     baseUrl:'https://portal-test.hightalk.ai',
     SSOWebUrl:{
         zh:"https://hightalkssoweb-test.azurewebsites.net/zh-cn",
@@ -11,7 +11,7 @@ const TEST_URL = {
     requestHost: 'https://hightalkadminapi-test.azurewebsites.net',
 }
 const UAT_URL = {
-    registerUrl:"https://hightalkssoapi-test.azurewebsites.net", // 注册页面
+    registerHost:"https://hightalkssoapi-test.azurewebsites.net", // 注册页面 服务器资源地址
     baseUrl:'https://htadminweb-uat.azurewebsites.net',
     SSOWebUrl:{
         zh:"https://hightalkssoweb-test.azurewebsites.net/zh-cn",
@@ -21,7 +21,7 @@ const UAT_URL = {
     requestHost: 'https://htadminapi-uat.azurewebsites.net',
 }
 const STAGING_URL = {
-    registerUrl:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面
+    registerHost:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面 服务器资源地址
     baseUrl:'https://portal-staging.hightalk.ai',
     SSOWebUrl:{
         zh:"https://login-staging.hightalk.ai/zh-cn",
@@ -31,7 +31,7 @@ const STAGING_URL = {
     requestHost: 'https://hightalkadminapi-staging.azurewebsites.net'
 }
 const PRODUCT_URL = {
-    registerUrl:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面
+    registerHost:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面 服务器资源地址
     baseUrl:'https://portal.hightalk.online',
     SSOWebUrl:{
         zh:"https://auth.hightalk.online/zh-cn",

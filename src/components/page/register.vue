@@ -377,7 +377,7 @@
                     headers: {
                         "Content-Type": "application/json;charset=utf-8",
                     },
-                    url: host.registerUrl + "/api/Tenant/Register?v=" + new Date(),
+                    url: host.registerHost + "/api/Tenant/Register?v=" + new Date(),
                     data: JSON.stringify(data),
                     dataType: "json",
                     async: true,
