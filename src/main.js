@@ -12,7 +12,6 @@ import "../static/css/theme/index.css"
 import ElementUI from 'element-ui';
 
 
-import '../static/css/icon.css';
 import "babel-polyfill";
 
 Vue.use(ElementUI, { size: 'small' });
