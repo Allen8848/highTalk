@@ -65,7 +65,7 @@
                     <div style="position: relative;height: 30px;">
                         <div style="padding-top: 5px;font-size: 12px;color: #999;padding-bottom: 18px;"
                              class="userDis1">
-                            范例 ：admin@company.hightalk.online
+                            例如 ：username@yourcompany.hightalk.online
                         </div>
                         <div
                             style="padding-top: 5px;font-size: 12px;color: #f43a38;padding-bottom: 18px;position: absolute;left: 0;top: 0;display: none;"
@@ -73,7 +73,7 @@
                             <i class="el-icon-warning"></i> 用户名为1-20位英文，数字，下划线
                         </div>
                         <div
-                            style="padding-top: 5px;font-size: 12px;color: #f43a38;padding-bottom: 18px;position: absolute;right: 125px;top: 0;display: none;"
+                            style="padding-top: 5px;font-size: 12px;color: #f43a38;padding-bottom: 18px;position: absolute;right: 115px;top: 0;display: none;"
                             class="userDis3">
                             <i class="el-icon-warning"></i> 租户域名1-20位英文，数字
                         </div>
@@ -407,7 +407,8 @@
                 }
                 if (registerUser.Status == 0) {
                     $(".userDis4").show();
-                    $(".userDis1").show();
+                    // $(".userDis1").show();
+
                 }
 
 
@@ -504,9 +505,10 @@
 
             },
             domainFocus() {
-                $(".userDis4").hide();
-                $(".userDis3").hide();
+                // $(".userDis1").show();
                 $(".user2 input").css("border", "1px solid  #2a8ce7");
+                $(".userDis3").hide();
+                $(".userDis4").hide();
             },
             domainBlur() {
                 let username = this.ruleForm.domain
