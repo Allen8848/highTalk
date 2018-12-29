@@ -5,7 +5,7 @@
 *
 * */
 
-import base from "../host/baseUrl";
+import base from "./host";
 import {TOKEN} from "../constants/constants";
 import {getCookies} from "../utils/cookie";
 

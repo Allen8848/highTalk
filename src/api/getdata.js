@@ -1,5 +1,9 @@
 
-import fetch from './fetch';
+// import fetch from './fetch';
+import  getRequest from "./easy-fetch";
+import base from "./host";
+
+
 /**
  *  api异步请求
  */
@@ -7,9 +11,9 @@ import fetch from './fetch';
 
 
 /**
- *  21.分词
+ *  01.注册新用户
  */
-export const participle  = params => fetch('/api/QuickQA/GetKeyWords' , params,"POST");  //  将一句话分成多个词汇
+export const newUser  = params => getRequest( base.SSOServerApi+"/api/Tenant/Register?v=" + new Date() , params,"POST");  //  注册新用户
 
 
 

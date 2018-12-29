@@ -79,7 +79,7 @@
                         </div>
                         <!--    租户企业域名已存在  -->
                         <div
-                            style="padding-top: 5px;font-size: 12px;color: #f43a38;padding-bottom: 18px;position: absolute;right: 150px;top: 0;display: none;"
+                            style="padding-top: 5px;font-size: 12px;color: #f43a38;padding-bottom: 18px;position: absolute;right: 168px;top: 0;display: none;"
                             class="userDis4">
                             <i class="el-icon-warning"></i> 租户域名已存在
                         </div>
@@ -195,6 +195,7 @@
 
 <script>
     import host from "../../api/host";
+    import {newUser} from "../../api/getdata";  // api
 
     export default {
         data() {
@@ -258,7 +259,7 @@
 
         },
         methods: {
-            myResize(){
+            myResize() {
                 let heightTop = $(".AllenLogo").outerHeight(true);
                 let heightMiddle = $(".login-wrap").outerHeight(true);
                 let sumHeight = heightTop + heightMiddle;
@@ -342,7 +343,7 @@
                 window.open(routeData.href, '_blank');
 
             },
-            submitForm(formName) {
+            async submitForm(formName) {
                 // 字符验证
                 this.companyNameBlue();
                 this.userNameBlur();
@@ -396,43 +397,56 @@
                         "Status": 1
                     }
                 };
+                let registerUser = await newUser(data);  // 调用注册接口
+                if (registerUser.Status == 1) {
+                    that.$message({
+                        message: "注册成功，将返回登录页面",
+                        type: 'success'
+                    });
+                    that.blankLoginIn();
+                }
+                if (registerUser.Status == 0) {
+                    $(".userDis4").show();
+                    $(".userDis1").show();
+                }
 
 
-                $.ajax({
-                    type: "POST",
-                    headers: {
-                        "Content-Type": "application/json;charset=utf-8",
-                    },
-                    url: host.registerHost + "/api/Tenant/Register?v=" + new Date(),
-                    data: JSON.stringify(data),
-                    dataType: "json",
-                    async: true,
-                    success: function (msg) {
-                        console.log("msg", msg);
-                        if (msg.Status == 1) {
-
-
-                            that.$message({
-                                message: "注册成功，将返回登录页面",
-                                type: 'success'
-                            });
-
-
-                            that.blankLoginIn();
-
-                        }
-                        if (msg.Status == 0) {
-
-                            $(".userDis4").show();
-                            $(".userDis1").show();
-
-                            // that.$message({
-                            //     message: msg.ErrorCodes[0].ErrorMessage,
-                            //     type: 'success'
-                            // });
-                        }
-                    }
-                })
+                // $.ajax({
+                //     type: "POST",
+                //     headers: {
+                //         "Content-Type": "application/json;charset=utf-8",
+                //     },
+                //     url: host.registerHost + "/api/Tenant/Register?v=" + new Date(),
+                //     data: JSON.stringify(data),
+                //     dataType: "json",
+                //     async: true,
+                //     success: function (msg) {
+                //         console.log("msg", msg);
+                //         debugger;
+                //         if (msg.Status == 1) {
+                //
+                //
+                //             that.$message({
+                //                 message: "注册成功，将返回登录页面",
+                //                 type: 'success'
+                //             });
+                //
+                //
+                //             that.blankLoginIn();
+                //
+                //         }
+                //         if (msg.Status == 0) {
+                //
+                //             $(".userDis4").show();
+                //             $(".userDis1").show();
+                //
+                //             // that.$message({
+                //             //     message: msg.ErrorCodes[0].ErrorMessage,
+                //             //     type: 'success'
+                //             // });
+                //         }
+                //     }
+                // })
 
 
             }
