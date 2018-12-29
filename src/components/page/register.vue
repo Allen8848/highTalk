@@ -168,26 +168,27 @@
 
                 </el-form>
             </div>
-            <div class="Allen-tip">
-                <div class="reserved" style="text-align:center;padding-bottom: 20px;">
-                    <p>2018 Pactera.All rights reserved.</p>
-                </div>
-                <div style="margin:0 auto; padding:0 0 0 0;text-align: center;font-size: 12px;">
-                    <a target="_blank" href=" "
-                       style="display:inline-block;text-decoration:none;height:20px;line-height:20px;vertical-align: middle">
-                        <img src="../../../static/copy.png" style="float:left;"/>
-                        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;font-size: 12px;">
-                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402004967" style="color:#939393;font-size: 12px;text-decoration: none;">沪公网安备 31010402004967号</a>
-                        </p>
-                    </a>
-                    <a href="http://www.miitbeian.gov.cn"
-                       style="margin-left:10px;color:#939393;font-size: 12px;text-decoration: none;vertical-align: middle;">沪ICP备18035763号-1</a>
-                </div>
 
-            </div>
         </div>
 
+        <div class="Allen-tip">
+            <div class="reserved" style="text-align:center;padding-bottom: 20px;">
+                <p>2018 Pactera.All rights reserved.</p>
+            </div>
+            <div style="margin:0 auto; padding:0 0 0 0;text-align: center;font-size: 12px;">
+                <a target="_blank" href=" "
+                   style="display:inline-block;text-decoration:none;height:20px;line-height:20px;vertical-align: middle">
+                    <img src="../../../static/copy.png" style="float:left;"/>
+                    <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;font-size: 12px;">
+                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402004967"
+                           style="color:#939393;font-size: 12px;text-decoration: none;">沪公网安备 31010402004967号</a>
+                    </p>
+                </a>
+                <a href="http://www.miitbeian.gov.cn"
+                   style="margin-left:10px;color:#939393;font-size: 12px;text-decoration: none;vertical-align: middle;">沪ICP备18035763号-1</a>
+            </div>
 
+        </div>
     </div>
 
 </template>
@@ -250,8 +251,33 @@
                 }
             });
 
+            this.myResize();
+            window.onresize = function () {
+                that.myResize();
+            };
+
         },
         methods: {
+            myResize(){
+                let heightTop = $(".AllenLogo").outerHeight(true);
+                let heightMiddle = $(".login-wrap").outerHeight(true);
+                let sumHeight = heightTop + heightMiddle;
+                let maxHeight = $(".login").outerHeight(true);
+                let winHeight = $(window).height() // 可视区高度
+                if (winHeight > sumHeight || winHeight == sumHeight) { // 如果可视区高度 > sum
+                    $(".Allen-tip").css({
+                        "position": "absolute",
+                        "left": "0",
+                        "bottom": "0"
+                    })
+                } else {
+                    $(".Allen-tip").css({
+                        "position": "static",
+                        "left": "0",
+                        "bottom": "0"
+                    })
+                }
+            },
             currentLogin() { // 立即登录
                 let that = this;
                 let redirecturls = this.GetRequest();
@@ -590,7 +616,7 @@
             passwords() {
                 let that = this;
                 that.ruleForm.passwordTwo = $.trim(that.ruleForm.passwordTwo);
-                let reg =/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%\^&*()_+`\-={}:";'[\]/\\<>?,.\/ ]).{8,20}$/;
+                let reg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%\^&*()_+`\-={}:";'[\]/\\<>?,.\/ ]).{8,20}$/;
                 if (that.ruleForm.passwordTwo == "") {
                     $(".passwordBlur1s").hide();
                     $(".passwordBlur2s").hide();
@@ -708,14 +734,16 @@
     }
 
     .AllenLogo {
+        box-sizing: border-box;
         height: 60px;
-        /*background-image: url(../../../static/img/Hightalk-Logo_36090@2x2.png);*/
         background-size: contain;
-        /* background-position: -125px -35px; */
         background-repeat: no-repeat;
         width: 100%;
         padding-top: 15px;
         background: #3b516f;
+        position: relative;
+        left: 0;
+        top: 0;
     }
 
     .Logo_inner {
@@ -733,13 +761,14 @@
     .Allen-tip {
         position: absolute;
         left: 0;
-        bottom: 10px;
+        bottom: 0px;
         padding-bottom: 5px;
         z-index: 9;
         font-size: 14px;
         text-align: center;
         width: 100%;
         color: #999999;
+        background: #f8f8f8;;
     }
 
     .ms-title-l {
@@ -769,10 +798,10 @@
 
     .login-wrap {
         min-width: 890px;
-        min-height: 830px;
-        position: relative;
         background: #f8f8f8;
         position: relative;
+        padding-top: 60px;
+        padding-bottom: 40px;
     }
 
     .innerInput {
@@ -804,8 +833,8 @@
         padding: 40px 250px;
         padding-bottom: 50px;
         margin: auto;
-        margin-top: 60px;
-        margin-bottom: 100px;
+        /*margin-top: 60px;*/
+        /*margin-bottom: 100px;*/
         position: relative;
     }
 
