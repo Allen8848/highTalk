@@ -1,5 +1,5 @@
 <template>
-    <div style="background:#f3f8f8;padding: 48px 210px 100px 210px;" class="Allenrr">
+    <div style="background:#f8f8f8;;padding: 48px 210px 100px 210px;" class="Allenrr">
         <div style="background: #fff;padding: 100px;padding-top: 0;border: 1px solid #e1e1e1">
             <div
                 style="height: 60px;line-height: 60px;font-size: 24px;color: #333;text-align: center;border-bottom: 1px solid #e1e1e1;">

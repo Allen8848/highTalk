@@ -218,6 +218,7 @@
                 // }
             };
             return {
+                test:"<h1>admin</h1>",
                 agreement: true,
                 passwordTip: "",// 密码提醒
 
@@ -407,7 +408,7 @@
                 }
                 if (registerUser.Status == 0) {
                     $(".userDis4").show();
-                    // $(".userDis1").show();
+                     $(".userDis1").hide();
 
                 }
 
