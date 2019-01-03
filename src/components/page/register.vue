@@ -156,7 +156,8 @@
                     <div style="margin-top: 15px;font-size: 14px">
                         <el-checkbox :disabled="register" v-model="ruleForm.reader" style="color: #999">我已阅读并同意
                         </el-checkbox>
-                        <span style="color: #999">  <span style="color: #2a8ce7;cursor: pointer" @click="open('/test')">嗨聊平台服务协议</span> 和 <span
+                        <span style="color: #999">  <span style="color: #2a8ce7;cursor: pointer" @click="open()"
+                                                          id="test">嗨聊平台服务协议</span> 和 <span
                             style="color: #2a8ce7;cursor: pointer" @click="open2('/test')">嗨聊平台隐私声明 </span></span>
                     </div>
 
@@ -218,7 +219,7 @@
                 // }
             };
             return {
-                test:"<h1>admin</h1>",
+
                 agreement: true,
                 passwordTip: "",// 密码提醒
 
@@ -238,6 +239,9 @@
                 slideVerify: {},
 
             }
+        },
+        created() {
+
         },
         mounted() {
             let that = this;
@@ -318,20 +322,17 @@
 
             },
 
-            open(v) {
-                // const href = window.location.host + '#';
-                //
-                // console.log(href + v)
-                //
-                // window.open(href + v);
+            open() {
+
                 let routeData = this.$router.resolve({
                     path: "/serviceProtocol",
 
                 });
+
                 window.open(routeData.href, '_blank');
 
             },
-            open2(v) {
+            open2() {
                 // const href = window.location.host + '#';
                 //
                 // console.log(href + v)
@@ -400,6 +401,7 @@
                 };
                 let registerUser = await newUser(data);  // 调用注册接口
                 if (registerUser.Status == 1) {
+
                     that.$message({
                         message: "注册成功，将返回登录页面",
                         type: 'success'
@@ -408,7 +410,7 @@
                 }
                 if (registerUser.Status == 0) {
                     $(".userDis4").show();
-                     $(".userDis1").hide();
+                    $(".userDis1").hide();
 
                 }
 
