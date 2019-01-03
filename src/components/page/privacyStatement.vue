@@ -1,9 +1,9 @@
 <template>
-    <div class="Allen" style="background:#f8f8f8;padding: 48px 210px 100px 210px;">
-        <div style="background: #fff;padding: 100px;padding-top: 0;border: 1px solid #e1e1e1">
+    <div class="Allen" style="background:#f8f8f8;padding: 48px 210px 100px 210px;-moz-user-select:none;">
+        <div style="background: #fff;padding: 100px;padding-top: 0;border: 1px solid #e1e1e1"  >
             <div
-                style="height: 60px;line-height: 60px;font-size: 24px;color: #333;text-align: center;border-bottom: 1px solid #e1e1e1;">
-                嗨聊平台 - 隐私声明
+                style="height: 60px;line-height: 60px;font-size: 24px;color: #333;text-align: center;border-bottom: 1px solid #e1e1e1;position: relative;">
+                嗨聊平台 - 隐私声明 <span style="position: absolute;right: 0;bottom:-15px;">版本号：2019年1月版</span>
             </div>
 
             <div style="padding-top: 30px;">
@@ -105,7 +105,7 @@ mso-fareast-font-family:宋体;color:#656972;mso-font-kerning:0pt">   </span></p
                     <b><span style="font-size:14px;  ">第二部分</span></b><b><span
                     style="font-size:14px; "> </span></b><b><span
                     style="font-size:14px;  ">法律声明</span></b><span lang="EN-US"
-                                                                   style="font-size:22.5pt;font-family:&quot;inherit&quot;,serif;mso-fareast-font-family:
+                                                                   style="font-size:22.5pt;mso-fareast-font-family:
 宋体;mso-bidi-font-family:Helvetica;color:#656972;mso-font-kerning:0pt">   </span></p>
 
                 <p class="MsoNormal" align="left"
@@ -804,6 +804,10 @@ mso-fareast-font-family:宋体;color:#656972;mso-font-kerning:0pt">   </span></p
         },
         mounted() {
             document.getElementsByTagName("title")[0].innerText = '嗨聊平台-隐私声明';
+
+            document.oncontextmenu = new Function("event.returnValue=false");
+            document.onselectstart = new Function("event.returnValue=false");
+
 
         }
 
