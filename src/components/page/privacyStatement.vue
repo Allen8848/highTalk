@@ -768,19 +768,6 @@ mso-fareast-font-family:宋体;color:#656972;mso-font-kerning:0pt">   </span></p
 12.0pt;mso-fareast-font-family:宋体;
 color:#656972;mso-font-kerning:0pt">   </span></p>
 
-                <p class="MsoNormal" align="left"
-                   style="margin-bottom: 7.5pt;  background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">
-                    <span style="font-size:14px;  ">更新日期：</span><b><span lang="EN-US"
-                                                                         style="font-size:14px; ">2018</span></b><b><span
-                    style="font-size:14px;  ">年</span></b><b><span lang="EN-US"
-                                                                   style="font-size:14px; ">11</span></b><b><span
-                    style="font-size:14px;  ">月</span></b><b><span lang="EN-US"
-                                                                   style="font-size:14px; ">6</span></b><b><span
-                    style="font-size:14px;  ">日</span></b><span lang="EN-US"
-                                                                style="font-size:14px;
-mso-fareast-font-family:宋体;color:#656972;mso-font-kerning:0pt">   </span></p>
-
-
             </div>
 
 
