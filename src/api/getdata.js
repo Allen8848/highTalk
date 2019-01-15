@@ -30,3 +30,13 @@ export const newUser = params => getRequest(base.SSOServerApi + "/api/Tenant/Reg
 
 
 
+
+
+
+
+
+
+
+
+
+
