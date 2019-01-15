@@ -400,7 +400,7 @@
                     }
                 };
                 let registerUser = await newUser(data);  // 调用注册接口
-                if (registerUser.Status == 1) {
+                if (registerUser.Status == 1) {  // Code
 
                     that.$message({
                         message: "注册成功，将返回登录页面",
