@@ -28,15 +28,15 @@ const STAGING_URL = {
     requestHost: 'https://hightalkadminapi-staging.azurewebsites.net'
 }
 const PRODUCT_URL = {
-    // baseUrl:'https://portal.hightalk.online',
-    // SSOWebUrl:{
-    //     zh:"https://auth.hightalk.online/zh-cn",
-    //     en:'/'
-    // },
-    // SSOServerApi:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面 服务器资源地址
-    // requestHost: 'https://hightalkadminapi-staging.azurewebsites.net'
+    baseUrl:'https://portal.hightalk.online',
+    SSOWebUrl:{
+        zh:"https://auth.hightalk.online/zh-cn",
+        en:'/'
+    },
+    SSOServerApi:"https://hightalkssoapi-staging.azurewebsites.net", // 注册页面 服务器资源地址
+    requestHost: 'https://hightalkadminapi-staging.azurewebsites.net'
 }
-export default  STAGING_URL
+export default  PRODUCT_URL
 
 
 
