@@ -157,8 +157,8 @@
                         <el-checkbox :disabled="register" v-model="ruleForm.reader" style="color: #999">我已阅读并同意
                         </el-checkbox>
                         <span style="color: #999">  <span style="color: #2a8ce7;cursor: pointer" @click="open()"
-                                                          id="test">平台服务协议</span> 和 <span
-                            style="color: #2a8ce7;cursor: pointer" @click="open2('/test')">平台隐私声明 </span></span>
+                                                          id="test">服务协议</span> 和 <span
+                            style="color: #2a8ce7;cursor: pointer" @click="open2('/test')">隐私声明 </span></span>
                     </div>
 
 
