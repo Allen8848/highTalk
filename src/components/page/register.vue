@@ -15,7 +15,7 @@
                 </div>
                 <div class="ms-title">
                     <div class="ms-title-l">
-                        欢迎注册平台
+                        欢迎注册
                     </div>
                 </div>
                 <el-form :model="ruleForm" label-width="0px" class="ms-content demo-ruleForm">
